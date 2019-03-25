@@ -7,16 +7,15 @@
 
 namespace Spryker\Service\Oauth\Dependency\Service;
 
-
 interface OauthToUtilEncodingServiceInterface
 {
     /**
-     * @param string $data
-     * @param string $format
+     * @param string $jsonValue
+     * @param bool $assoc
+     * @param int|null $depth
+     * @param int|null $options
      *
-     * @throws \Spryker\Service\UtilEncoding\Exception\FormatNotSupportedException
-     *
-     * @return array|null
+     * @return mixed|null
      */
-    public function decodeFromFormat(string $data, string $format): ?array;
+    public function decodeJson($jsonValue, $assoc = false, $depth = null, $options = null);
 }

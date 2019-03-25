@@ -7,7 +7,6 @@
 
 namespace Spryker\Service\Oauth\Dependency\Service;
 
-
 class OauthToUtilEncodingServiceBridge implements OauthToUtilEncodingServiceInterface
 {
     /**
@@ -24,15 +23,15 @@ class OauthToUtilEncodingServiceBridge implements OauthToUtilEncodingServiceInte
     }
 
     /**
-     * @param string $data
-     * @param string $format
+     * @param string $jsonValue
+     * @param bool $assoc
+     * @param int|null $depth
+     * @param int|null $options
      *
-     * @return array|null
-     *
-     * @throws \Spryker\Service\UtilEncoding\Exception\FormatNotSupportedException
+     * @return mixed|null
      */
-    public function decodeFromFormat(string $data, string $format): ?array
+    public function decodeJson($jsonValue, $assoc = false, $depth = null, $options = null)
     {
-        return $this->utilEncodingService->decodeFromFormat($data, $format);
+        return $this->utilEncodingService->decodeJson($jsonValue, $assoc, $depth, $options);
     }
 }
