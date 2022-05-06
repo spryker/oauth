@@ -7,18 +7,20 @@
 
 namespace Spryker\Zed\Oauth\Business\Model\League\Grant;
 
+use Generated\Shared\Transfer\GlueAuthenticationRequestContextTransfer;
 use Generated\Shared\Transfer\OauthGrantTypeConfigurationTransfer;
 use Generated\Shared\Transfer\OauthRequestTransfer;
 
-/**
- * @deprecated Use {@link \Spryker\Zed\Oauth\Business\Model\League\Grant\OauthGrantTypeConfigurationLoaderInterface} instead.
- */
-interface GrantTypeConfigurationLoaderInterface
+interface OauthGrantTypeConfigurationLoaderInterface
 {
     /**
      * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
+     * @param \Generated\Shared\Transfer\GlueAuthenticationRequestContextTransfer $glueAuthenticationRequestContextTransfer
      *
      * @return \Generated\Shared\Transfer\OauthGrantTypeConfigurationTransfer|null
      */
-    public function loadGrantTypeConfigurationByGrantType(OauthRequestTransfer $oauthRequestTransfer): ?OauthGrantTypeConfigurationTransfer;
+    public function loadGrantTypeConfiguration(
+        OauthRequestTransfer $oauthRequestTransfer,
+        GlueAuthenticationRequestContextTransfer $glueAuthenticationRequestContextTransfer
+    ): ?OauthGrantTypeConfigurationTransfer;
 }
