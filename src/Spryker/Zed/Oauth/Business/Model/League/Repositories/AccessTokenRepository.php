@@ -90,8 +90,8 @@ class AccessTokenRepository implements AccessTokenRepositoryInterface
         $userIdentifier = (string)$accessTokenEntity->getUserIdentifier();
         $userIdentifier = $this->filterUserIdentifier($userIdentifier);
 
-        /** @var string $encodedScopes */
         $encodedScopes = json_encode($accessTokenEntity->getScopes());
+        $encodedScopes = $encodedScopes !== false ? $encodedScopes : null;
 
         $spyAccessTokenEntityTransfer = new SpyOauthAccessTokenEntityTransfer();
         $spyAccessTokenEntityTransfer

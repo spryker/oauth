@@ -70,7 +70,7 @@ class OauthClientInstaller implements OauthClientInstallerInterface
         $oauthClientTransfer = (new OauthClientTransfer())
             ->fromArray($clientConfiguration, true);
 
-        /** @var string $secret */
+        /** @var non-empty-string $secret */
         $secret = password_hash($oauthClientTransfer->getSecret(), PASSWORD_BCRYPT);
 
         $oauthClientTransfer
@@ -97,7 +97,7 @@ class OauthClientInstaller implements OauthClientInstallerInterface
             return;
         }
 
-        /** @var string $secret */
+        /** @var non-empty-string $secret */
         $secret = password_hash($this->oauthConfig->getClientSecret(), PASSWORD_BCRYPT);
 
         $oauthClientTransfer

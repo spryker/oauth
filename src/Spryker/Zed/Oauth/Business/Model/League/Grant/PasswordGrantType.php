@@ -104,6 +104,7 @@ class PasswordGrantType extends AbstractGrant implements GrantTypeInterface
             $scopes = $this->convertScopesQueryStringToArray($scopes);
         }
 
+        /** @phpstan-ignore function.alreadyNarrowedType */
         if (!is_array($scopes)) {
             throw OAuthServerException::invalidRequest('scope');
         }

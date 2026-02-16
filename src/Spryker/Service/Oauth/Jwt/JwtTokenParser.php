@@ -66,6 +66,7 @@ class JwtTokenParser implements JwtTokenParserInterface
      */
     protected function splitJwt($jwt): ?array
     {
+        /** @phpstan-ignore function.alreadyNarrowedType */
         if (!is_string($jwt)) {
             return null;
         }
