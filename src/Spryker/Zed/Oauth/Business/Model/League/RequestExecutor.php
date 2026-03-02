@@ -52,11 +52,6 @@ class RequestExecutor implements RequestExecutorInterface
      */
     protected $oauthGrantTypeConfigurationLoader;
 
-    /**
-     * @param \Spryker\Zed\Oauth\Business\Model\League\Grant\GrantTypeConfigurationLoaderInterface $grantTypeConfigurationLoader
-     * @param \Spryker\Zed\Oauth\OauthConfig $oauthConfig
-     * @param \Spryker\Zed\Oauth\Business\Model\League\Grant\OauthGrantTypeConfigurationLoaderInterface $oauthGrantTypeConfigurationLoader
-     */
     public function __construct(
         GrantTypeConfigurationLoaderInterface $grantTypeConfigurationLoader,
         OauthConfig $oauthConfig,
@@ -67,11 +62,6 @@ class RequestExecutor implements RequestExecutorInterface
         $this->oauthGrantTypeConfigurationLoader = $oauthGrantTypeConfigurationLoader;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthGrantTypeConfigurationTransfer|null
-     */
     public function createOauthGrantTypeConfigurationTransfer(OauthRequestTransfer $oauthRequestTransfer): ?OauthGrantTypeConfigurationTransfer
     {
         $oauthGrantTypeConfigurationTransfer = new OauthGrantTypeConfigurationTransfer();
@@ -96,11 +86,6 @@ class RequestExecutor implements RequestExecutorInterface
         return $oauthGrantTypeConfigurationTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthResponseTransfer
-     */
     public function createUnsupportedGrantTypeError(OauthRequestTransfer $oauthRequestTransfer): OauthResponseTransfer
     {
         $oauthResponseTransfer = new OauthResponseTransfer();
@@ -113,11 +98,6 @@ class RequestExecutor implements RequestExecutorInterface
         return $oauthResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthRequestTransfer
-     */
     public function expandOauthRequestTransfer(OauthRequestTransfer $oauthRequestTransfer): OauthRequestTransfer
     {
         if ($oauthRequestTransfer->getClientId()) {

@@ -40,12 +40,6 @@ class OauthRefreshTokenMapper implements OauthRefreshTokenMapperInterface
         $this->oauthUserIdentifierFilterPlugins = $oauthUserIdentifierFilterPlugins;
     }
 
-    /**
-     * @param \League\OAuth2\Server\Entities\RefreshTokenEntityInterface $refreshTokenEntity
-     * @param \Generated\Shared\Transfer\OauthRefreshTokenTransfer $oauthRefreshTokenTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthRefreshTokenTransfer
-     */
     public function mapRefreshTokenEntityToOauthRefreshTokenTransfer(
         RefreshTokenEntityInterface $refreshTokenEntity,
         OauthRefreshTokenTransfer $oauthRefreshTokenTransfer
@@ -66,11 +60,6 @@ class OauthRefreshTokenMapper implements OauthRefreshTokenMapperInterface
         return $oauthRefreshTokenTransfer;
     }
 
-    /**
-     * @param array $userIdentifier
-     *
-     * @return array
-     */
     protected function filterUserIdentifier(array $userIdentifier): array
     {
         foreach ($this->oauthUserIdentifierFilterPlugins as $oauthUserIdentifierFilterPlugin) {

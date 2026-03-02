@@ -23,10 +23,6 @@ class ResourceServerBuilder implements ResourceServerBuilderInterface
      */
     protected $accessTokenRepository;
 
-    /**
-     * @param \Spryker\Client\Oauth\OauthConfig $oauthConfig
-     * @param \League\OAuth2\Server\Repositories\AccessTokenRepositoryInterface $accessTokenRepository
-     */
     public function __construct(
         OauthConfig $oauthConfig,
         AccessTokenRepositoryInterface $accessTokenRepository
@@ -35,9 +31,6 @@ class ResourceServerBuilder implements ResourceServerBuilderInterface
         $this->accessTokenRepository = $accessTokenRepository;
     }
 
-    /**
-     * @return \League\OAuth2\Server\ResourceServer
-     */
     public function create(): ResourceServer
     {
         return new ResourceServer(

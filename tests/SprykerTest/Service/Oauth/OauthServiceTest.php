@@ -39,9 +39,6 @@ class OauthServiceTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testExtractAccessTokenDataReturnsTransferWithCorrectDecodedData(): void
     {
         // Act

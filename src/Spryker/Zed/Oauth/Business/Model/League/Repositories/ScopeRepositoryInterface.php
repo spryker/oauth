@@ -38,10 +38,5 @@ interface ScopeRepositoryInterface extends LeagueScopeRepositoryInterface
         ?string $applicationName = null
     );
 
-    /**
-     * @param string $scopeIdentifier
-     *
-     * @return \Spryker\Zed\Oauth\Business\Model\League\Entities\ScopeEntity
-     */
     public function createScopeEntity(string $scopeIdentifier): ScopeEntity;
 }

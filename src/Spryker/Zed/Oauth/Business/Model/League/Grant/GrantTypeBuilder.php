@@ -26,10 +26,6 @@ class GrantTypeBuilder implements GrantBuilderInterface
      */
     protected $oauthConfig;
 
-    /**
-     * @param \Spryker\Zed\Oauth\Business\Model\League\RepositoryBuilderInterface $repositoryBuilder
-     * @param \Spryker\Zed\Oauth\OauthConfig $oauthConfig
-     */
     public function __construct(
         RepositoryBuilderInterface $repositoryBuilder,
         OauthConfig $oauthConfig

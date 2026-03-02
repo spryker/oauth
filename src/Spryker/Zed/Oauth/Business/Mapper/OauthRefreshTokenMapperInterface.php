@@ -12,12 +12,6 @@ use League\OAuth2\Server\Entities\RefreshTokenEntityInterface;
 
 interface OauthRefreshTokenMapperInterface
 {
-    /**
-     * @param \League\OAuth2\Server\Entities\RefreshTokenEntityInterface $refreshTokenEntity
-     * @param \Generated\Shared\Transfer\OauthRefreshTokenTransfer $oauthRefreshTokenTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthRefreshTokenTransfer
-     */
     public function mapRefreshTokenEntityToOauthRefreshTokenTransfer(
         RefreshTokenEntityInterface $refreshTokenEntity,
         OauthRefreshTokenTransfer $oauthRefreshTokenTransfer

@@ -22,19 +22,11 @@ class JwtTokenParser implements JwtTokenParserInterface
      */
     protected $utilEncodingService;
 
-    /**
-     * @param \Spryker\Service\Oauth\Dependency\Service\OauthToUtilEncodingServiceInterface $utilEncodingService
-     */
     public function __construct(OauthToUtilEncodingServiceInterface $utilEncodingService)
     {
         $this->utilEncodingService = $utilEncodingService;
     }
 
-    /**
-     * @param string $jwtToken
-     *
-     * @return \Generated\Shared\Transfer\JwtTokenTransfer|null
-     */
     public function parse(string $jwtToken): ?JwtTokenTransfer
     {
         $data = $this->splitJwt($jwtToken);
@@ -80,11 +72,6 @@ class JwtTokenParser implements JwtTokenParserInterface
         return $data;
     }
 
-    /**
-     * @param string $data
-     *
-     * @return array
-     */
     protected function parseTokenData(string $data): array
     {
         return $this->utilEncodingService->decodeJson($this->decodeBase64Url($data), true);
@@ -107,11 +94,6 @@ class JwtTokenParser implements JwtTokenParserInterface
         return $hash;
     }
 
-    /**
-     * @param string $data
-     *
-     * @return string
-     */
     protected function decodeBase64Url(string $data): string
     {
         $remainder = strlen($data) % 4;
@@ -122,14 +104,6 @@ class JwtTokenParser implements JwtTokenParserInterface
         return base64_decode(strtr($data, '-_', '+/'));
     }
 
-    /**
-     * @param array $headers
-     * @param array $claims
-     * @param string|null $signature
-     * @param array $payload
-     *
-     * @return \Generated\Shared\Transfer\JwtTokenTransfer
-     */
     protected function createJwtTokenTransfer(
         array $headers,
         array $claims,

@@ -28,9 +28,6 @@ class ScopeCacheCollectorConsole extends Console
      */
     public const DESCRIPTION = 'Create cache file for collect all existing scopes';
 
-    /**
-     * @return void
-     */
     protected function configure(): void
     {
         $this->setName(static::COMMAND_NAME)
@@ -40,12 +37,6 @@ class ScopeCacheCollectorConsole extends Console
         parent::configure();
     }
 
-    /**
-     * @param \Symfony\Component\Console\Input\InputInterface $input
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     *
-     * @return int
-     */
     public function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln('<fg=yellow>----------------------------------------</fg=yellow>');

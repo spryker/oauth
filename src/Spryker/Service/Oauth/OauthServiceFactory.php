@@ -16,9 +16,6 @@ use Spryker\Service\Oauth\Jwt\TokenDataExtractorInterface;
 
 class OauthServiceFactory extends AbstractServiceFactory
 {
-    /**
-     * @return \Spryker\Service\Oauth\Jwt\TokenDataExtractorInterface
-     */
     public function createTokenDataExtractor(): TokenDataExtractorInterface
     {
         return new TokenDataExtractor(
@@ -26,9 +23,6 @@ class OauthServiceFactory extends AbstractServiceFactory
         );
     }
 
-    /**
-     * @return \Spryker\Service\Oauth\Jwt\JwtTokenParserInterface
-     */
     public function createJwtTokenParser(): JwtTokenParserInterface
     {
         return new JwtTokenParser(
@@ -36,9 +30,6 @@ class OauthServiceFactory extends AbstractServiceFactory
         );
     }
 
-    /**
-     * @return \Spryker\Service\Oauth\Dependency\Service\OauthToUtilEncodingServiceInterface
-     */
     public function getUtilEncodingService(): OauthToUtilEncodingServiceInterface
     {
         return $this->getProvidedDependency(OauthDependencyProvider::SERVICE_UTIL_ENCODING);

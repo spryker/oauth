@@ -115,11 +115,6 @@ class OauthDependencyProvider extends AbstractBundleDependencyProvider
      */
     public const YAML_DUMPER = 'YAML_DUMPER';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideBusinessLayerDependencies(Container $container): Container
     {
         $container = parent::provideBusinessLayerDependencies($container);
@@ -148,11 +143,6 @@ class OauthDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addUtilEncodingService(Container $container): Container
     {
         $container->set(static::SERVICE_UTIL_ENCODING, function (Container $container) {
@@ -164,11 +154,6 @@ class OauthDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addUserProviderPlugins(Container $container): Container
     {
         $container->set(static::PLUGIN_USER_PROVIDER, function (Container $container) {
@@ -178,11 +163,6 @@ class OauthDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addOauthUserProviderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_OAUTH_USER_PROVIDER, function (Container $container) {
@@ -192,11 +172,6 @@ class OauthDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addScopeProviderPlugins(Container $container): Container
     {
         $container->set(static::PLUGIN_SCOPE_PROVIDER, function (Container $container) {
@@ -206,11 +181,6 @@ class OauthDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addScopeFinderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_SCOPE_FINDER, function (Container $container) {
@@ -220,11 +190,6 @@ class OauthDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addGrantTypeConfigurationProviderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_GRANT_TYPE_CONFIGURATION_PROVIDER, function (Container $container) {
@@ -234,11 +199,6 @@ class OauthDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addOauthRequestGrantTypeConfigurationProviderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_OAUTH_REQUEST_GRANT_TYPE_CONFIGURATION_PROVIDER, function (Container $container) {
@@ -248,11 +208,6 @@ class OauthDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addOauthUserIdentifierFilterPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_OAUTH_USER_IDENTIFIER_FILTER, function () {
@@ -262,11 +217,6 @@ class OauthDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addOauthRefreshTokenRevokerPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_OAUTH_REFRESH_TOKEN_REVOKER, function () {
@@ -276,11 +226,6 @@ class OauthDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addOauthRefreshTokensRevokerPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_OAUTH_REFRESH_TOKENS_REVOKER, function () {
@@ -306,11 +251,6 @@ class OauthDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addOauthRefreshTokenPersistencePlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_OAUTH_REFRESH_TOKEN_PERSISTENCE, function () {
@@ -320,11 +260,6 @@ class OauthDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addOauthRefreshTokenCheckerPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_OAUTH_REFRESH_TOKEN_CHECKER, function () {
@@ -334,11 +269,6 @@ class OauthDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addOauthExpiredRefreshTokenRemoverPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_OAUTH_EXPIRED_REFRESH_TOKEN_REMOVER, function () {
@@ -348,11 +278,6 @@ class OauthDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addOauthRefreshTokenReaderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_OAUTH_REFRESH_TOKEN_READER, function () {
@@ -362,11 +287,6 @@ class OauthDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addOauthRefreshTokensReaderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_OAUTH_REFRESH_TOKENS_READER, function () {
@@ -376,11 +296,6 @@ class OauthDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addScopeCollectorPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_SCOPE_COLLECTOR, function (Container $container) {
@@ -390,11 +305,6 @@ class OauthDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addFilesystem(Container $container): Container
     {
         $container->set(static::FILESYSTEM, function () {
@@ -404,11 +314,6 @@ class OauthDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addYamlDumper(Container $container): Container
     {
         $container->set(static::YAML_DUMPER, function () {

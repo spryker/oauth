@@ -36,11 +36,6 @@ class RefreshTokenGrant implements GrantInterface
      */
     protected $oauthConfig;
 
-    /**
-     * @param \League\OAuth2\Server\AuthorizationServer $authorizationServer
-     * @param \Spryker\Zed\Oauth\Business\Model\League\RepositoryBuilderInterface $repositoryBuilder
-     * @param \Spryker\Zed\Oauth\OauthConfig $oauthConfig
-     */
     public function __construct(
         AuthorizationServer $authorizationServer,
         RepositoryBuilderInterface $repositoryBuilder,
@@ -51,11 +46,6 @@ class RefreshTokenGrant implements GrantInterface
         $this->oauthConfig = $oauthConfig;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthResponseTransfer
-     */
     public function processAccessTokenRequest(OauthRequestTransfer $oauthRequestTransfer): OauthResponseTransfer
     {
         $oauthResponseTransfer = (new OauthResponseTransfer())

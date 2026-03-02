@@ -11,11 +11,6 @@ use Generated\Shared\Transfer\OauthScopeTransfer;
 
 interface OauthScopeReaderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\OauthScopeTransfer $oauthScopeTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthScopeTransfer|null
-     */
     public function findScopeByIdentifier(OauthScopeTransfer $oauthScopeTransfer): ?OauthScopeTransfer;
 
     /**

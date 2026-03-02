@@ -30,10 +30,6 @@ class GrantTypeExecutor implements GrantTypeExecutorInterface
      */
     protected $oauthConfig;
 
-    /**
-     * @param \League\OAuth2\Server\AuthorizationServer $authorizationServer
-     * @param \Spryker\Zed\Oauth\OauthConfig $oauthConfig
-     */
     public function __construct(
         AuthorizationServer $authorizationServer,
         OauthConfig $oauthConfig
@@ -42,12 +38,6 @@ class GrantTypeExecutor implements GrantTypeExecutorInterface
         $this->oauthConfig = $oauthConfig;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     * @param \Spryker\Zed\Oauth\Business\Model\League\Grant\GrantTypeInterface $grant
-     *
-     * @return \Generated\Shared\Transfer\OauthResponseTransfer
-     */
     public function processAccessTokenRequest(OauthRequestTransfer $oauthRequestTransfer, GrantTypeInterface $grant): OauthResponseTransfer
     {
         try {
@@ -66,11 +56,6 @@ class GrantTypeExecutor implements GrantTypeExecutorInterface
         }
     }
 
-    /**
-     * @param \League\OAuth2\Server\Exception\OAuthServerException $exception
-     *
-     * @return \Generated\Shared\Transfer\OauthResponseTransfer
-     */
     protected function createErrorOauthResponseTransfer(OAuthServerException $exception): OauthResponseTransfer
     {
         $oauthErrorTransfer = new OauthErrorTransfer();
@@ -83,11 +68,6 @@ class GrantTypeExecutor implements GrantTypeExecutorInterface
             ->setError($oauthErrorTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     *
-     * @return \GuzzleHttp\Psr7\ServerRequest
-     */
     protected function createAccessTokenRequest(OauthRequestTransfer $oauthRequestTransfer): ServerRequest
     {
         $accessTokenRequest = new ServerRequest('POST', '');
@@ -105,11 +85,6 @@ class GrantTypeExecutor implements GrantTypeExecutorInterface
         return $accessTokenRequest->withParsedBody($oauthRequestArray);
     }
 
-    /**
-     * @param \Psr\Http\Message\ResponseInterface $response
-     *
-     * @return \Generated\Shared\Transfer\OauthResponseTransfer
-     */
     protected function createOauthResponseTransfer(ResponseInterface $response): OauthResponseTransfer
     {
         $data = json_decode((string)$response->getBody(), true);

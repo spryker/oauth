@@ -42,9 +42,6 @@ class ResourceServerCreator implements ResourceServerCreatorInterface
         $this->authorizationValidatorPlugins = $authorizationValidatorPlugins;
     }
 
-    /**
-     * @return \Spryker\Client\Oauth\ResourceServer\ResourceServer
-     */
     public function create(): ResourceServer
     {
         return new ResourceServer(

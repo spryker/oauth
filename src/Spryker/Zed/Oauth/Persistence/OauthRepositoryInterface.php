@@ -17,18 +17,8 @@ use League\OAuth2\Server\Entities\ClientEntityInterface;
  */
 interface OauthRepositoryInterface
 {
-    /**
-     * @param string $identifier
-     *
-     * @return \Generated\Shared\Transfer\SpyOauthClientEntityTransfer|null
-     */
     public function findClientByIdentifier(string $identifier): ?SpyOauthClientEntityTransfer;
 
-    /**
-     * @param string $identifier
-     *
-     * @return \Generated\Shared\Transfer\SpyOauthScopeEntityTransfer|null
-     */
     public function findScopeByIdentifier(string $identifier): ?SpyOauthScopeEntityTransfer;
 
     /**

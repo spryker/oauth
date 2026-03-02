@@ -36,11 +36,6 @@ class OauthDependencyProvider extends AbstractDependencyProvider
      */
     public const PLUGINS_ACCESS_TOKEN_VALIDATOR = 'PLUGINS_ACCESS_TOKEN_VALIDATOR';
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     public function provideServiceLayerDependencies(Container $container): Container
     {
         $container = parent::provideServiceLayerDependencies($container);
@@ -53,11 +48,6 @@ class OauthDependencyProvider extends AbstractDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addZedRequestClient(Container $container): Container
     {
         $container->set(static::CLIENT_ZED_REQUEST, function (Container $container) {
@@ -67,11 +57,6 @@ class OauthDependencyProvider extends AbstractDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addKeyLoaderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_KEY_LOADER, function () {
@@ -89,11 +74,6 @@ class OauthDependencyProvider extends AbstractDependencyProvider
         return [];
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addAuthorizationValidatorPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_AUTHORIZATION_VALIDATOR, function () {
@@ -111,11 +91,6 @@ class OauthDependencyProvider extends AbstractDependencyProvider
         return [];
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addAccessTokenValidatorPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_ACCESS_TOKEN_VALIDATOR, function (): array {

@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\OauthScopeTransfer;
 
 interface OauthScopeWriterInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\OauthScopeTransfer $oauthScopeTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthScopeTransfer
-     */
     public function save(OauthScopeTransfer $oauthScopeTransfer): OauthScopeTransfer;
 }

@@ -22,10 +22,6 @@ class ResourceServerBuilder implements ResourceServerBuilderInterface
      */
     protected $repositoryBuilder;
 
-    /**
-     * @param \Spryker\Zed\Oauth\OauthConfig $oauthConfig
-     * @param \Spryker\Zed\Oauth\Business\Model\League\RepositoryBuilderInterface $repositoryBuilder
-     */
     public function __construct(
         OauthConfig $oauthConfig,
         RepositoryBuilderInterface $repositoryBuilder
@@ -34,9 +30,6 @@ class ResourceServerBuilder implements ResourceServerBuilderInterface
         $this->repositoryBuilder = $repositoryBuilder;
     }
 
-    /**
-     * @return \League\OAuth2\Server\ResourceServer
-     */
     public function build(): ResourceServer
     {
         return new ResourceServer(

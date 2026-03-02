@@ -11,8 +11,5 @@ use League\OAuth2\Server\AuthorizationServer as OauthServer;
 
 interface AuthorizationServerBuilderInterface
 {
-    /**
-     * @return \League\OAuth2\Server\AuthorizationServer
-     */
     public function build(): OauthServer;
 }

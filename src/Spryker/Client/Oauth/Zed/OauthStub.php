@@ -22,19 +22,11 @@ class OauthStub implements OauthStubInterface
      */
     protected $zedRequestClient;
 
-    /**
-     * @param \Spryker\Client\Oauth\Dependency\Client\OauthToZedRequestClientInterface $zedRequestClient
-     */
     public function __construct(OauthToZedRequestClientInterface $zedRequestClient)
     {
         $this->zedRequestClient = $zedRequestClient;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthResponseTransfer
-     */
     public function processAccessTokenRequest(OauthRequestTransfer $oauthRequestTransfer): OauthResponseTransfer
     {
         /** @var \Generated\Shared\Transfer\OauthResponseTransfer $oauthResponseTransfer */
@@ -43,11 +35,6 @@ class OauthStub implements OauthStubInterface
         return $oauthResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthAccessTokenValidationRequestTransfer $authAccessTokenValidationRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthAccessTokenValidationResponseTransfer
-     */
     public function validateAccessToken(
         OauthAccessTokenValidationRequestTransfer $authAccessTokenValidationRequestTransfer
     ): OauthAccessTokenValidationResponseTransfer {

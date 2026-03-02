@@ -78,11 +78,6 @@ class UserRepository implements UserRepositoryInterface
         return null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthUserTransfer $oauthUserTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthUserTransfer|null
-     */
     protected function findUser(OauthUserTransfer $oauthUserTransfer): ?OauthUserTransfer
     {
         foreach ($this->userProviderPlugins as $userProviderPlugin) {
@@ -99,14 +94,6 @@ class UserRepository implements UserRepositoryInterface
         return null;
     }
 
-    /**
-     * @param string $username
-     * @param string $password
-     * @param string $grantType
-     * @param \League\OAuth2\Server\Entities\ClientEntityInterface $clientEntity
-     *
-     * @return \Generated\Shared\Transfer\OauthUserTransfer
-     */
     protected function createOauthUserTransfer(
         string $username,
         string $password,

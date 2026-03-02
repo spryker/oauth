@@ -28,9 +28,6 @@ class OauthTokenConsole extends Console
      */
     public const DESCRIPTION = 'Remove expired refresh tokens from the database.';
 
-    /**
-     * @return void
-     */
     protected function configure(): void
     {
         $this->setName(static::COMMAND_NAME)

@@ -32,9 +32,6 @@ class OauthServiceTester extends Actor
 {
     use _generated\OauthServiceTesterActions;
 
-    /**
-     * @return \Spryker\Service\Oauth\OauthServiceInterface
-     */
     public function getOauthService(): OauthServiceInterface
     {
         return $this->getLocator()->oauth()->service();

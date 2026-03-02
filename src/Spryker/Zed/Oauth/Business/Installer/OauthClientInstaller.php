@@ -29,11 +29,6 @@ class OauthClientInstaller implements OauthClientInstallerInterface
      */
     protected $oauthClientReader;
 
-    /**
-     * @param \Spryker\Zed\Oauth\OauthConfig $oauthConfig
-     * @param \Spryker\Zed\Oauth\Business\Model\OauthClientWriterInterface $oauthClientWriter
-     * @param \Spryker\Zed\Oauth\Business\Model\OauthClientReaderInterface $oauthClientReader
-     */
     public function __construct(
         OauthConfig $oauthConfig,
         OauthClientWriterInterface $oauthClientWriter,
@@ -44,9 +39,6 @@ class OauthClientInstaller implements OauthClientInstallerInterface
         $this->oauthClientReader = $oauthClientReader;
     }
 
-    /**
-     * @return void
-     */
     public function install(): void
     {
         if (!$this->oauthConfig->getClientConfiguration()) {

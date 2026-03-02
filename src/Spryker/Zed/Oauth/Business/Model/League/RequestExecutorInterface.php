@@ -13,24 +13,9 @@ use Generated\Shared\Transfer\OauthResponseTransfer;
 
 interface RequestExecutorInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthGrantTypeConfigurationTransfer|null
-     */
     public function createOauthGrantTypeConfigurationTransfer(OauthRequestTransfer $oauthRequestTransfer): ?OauthGrantTypeConfigurationTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthResponseTransfer
-     */
     public function createUnsupportedGrantTypeError(OauthRequestTransfer $oauthRequestTransfer): OauthResponseTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthRequestTransfer
-     */
     public function expandOauthRequestTransfer(OauthRequestTransfer $oauthRequestTransfer): OauthRequestTransfer;
 }

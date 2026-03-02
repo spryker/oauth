@@ -23,9 +23,6 @@ class ClientRepository implements ClientRepositoryInterface
      */
     protected static $oauthClientEntityTransferCache = [];
 
-    /**
-     * @param \Spryker\Zed\Oauth\Persistence\OauthRepositoryInterface $oauthRepository
-     */
     public function __construct(OauthRepositoryInterface $oauthRepository)
     {
         $this->oauthRepository = $oauthRepository;

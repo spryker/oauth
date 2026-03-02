@@ -142,17 +142,11 @@ class RepositoryBuilder implements RepositoryBuilderInterface
         $this->scopeFinderPlugins = $scopeFinderPlugins;
     }
 
-    /**
-     * @return \League\OAuth2\Server\Repositories\ClientRepositoryInterface
-     */
     public function createClientRepository(): ClientRepositoryInterface
     {
         return new ClientRepository($this->oauthRepository);
     }
 
-    /**
-     * @return \League\OAuth2\Server\Repositories\ScopeRepositoryInterface
-     */
     public function createScopeRepository(): ScopeRepositoryInterface
     {
         return new ScopeRepository(
@@ -162,9 +156,6 @@ class RepositoryBuilder implements RepositoryBuilderInterface
         );
     }
 
-    /**
-     * @return \League\OAuth2\Server\Repositories\AccessTokenRepositoryInterface
-     */
     public function createAccessTokenRepository(): AccessTokenRepositoryInterface
     {
         return new AccessTokenRepository(
@@ -175,25 +166,16 @@ class RepositoryBuilder implements RepositoryBuilderInterface
         );
     }
 
-    /**
-     * @return \League\OAuth2\Server\Repositories\UserRepositoryInterface
-     */
     public function createUserRepository(): UserRepositoryInterface
     {
         return new UserRepository($this->userProviderPlugins);
     }
 
-    /**
-     * @return \League\OAuth2\Server\Repositories\UserRepositoryInterface
-     */
     public function createOauthUserRepository(): UserRepositoryInterface
     {
         return new UserRepository($this->oauthUserProviderPlugins);
     }
 
-    /**
-     * @return \Spryker\Zed\Oauth\Business\Model\League\Repositories\RefreshTokenRepositoryInterface
-     */
     public function createRefreshTokenRepository(): RefreshTokenRepositoryInterface
     {
         return new RefreshTokenRepository(

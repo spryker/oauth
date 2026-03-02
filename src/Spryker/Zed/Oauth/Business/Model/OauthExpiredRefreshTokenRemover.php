@@ -44,9 +44,6 @@ class OauthExpiredRefreshTokenRemover implements OauthExpiredRefreshTokenRemover
         $this->oauthExpiredRefreshTokenRemoverPlugins = $oauthExpiredRefreshTokenRemoverPlugins;
     }
 
-    /**
-     * @return int|null
-     */
     public function deleteExpiredRefreshTokens(): ?int
     {
         $refreshTokenRetentionInterval = new DateInterval($this->oauthConfig->getRefreshTokenRetentionInterval());
@@ -60,11 +57,6 @@ class OauthExpiredRefreshTokenRemover implements OauthExpiredRefreshTokenRemover
         return $deletedExpiredRefreshTokens;
     }
 
-    /**
-     * @param \DateInterval $refreshTokenRetentionInterval
-     *
-     * @return string
-     */
     protected function getExpiresAt(DateInterval $refreshTokenRetentionInterval): string
     {
         return $this->presentDateTime

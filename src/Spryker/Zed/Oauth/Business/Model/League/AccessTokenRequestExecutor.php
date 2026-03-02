@@ -29,11 +29,6 @@ class AccessTokenRequestExecutor implements AccessTokenRequestExecutorInterface
      */
     protected $requestExecutor;
 
-    /**
-     * @param \Spryker\Zed\Oauth\Business\Model\League\Grant\GrantBuilderInterface $grantTypeBuilder
-     * @param \Spryker\Zed\Oauth\Business\Model\League\Grant\GrantTypeExecutorInterface $grantTypeExecutor
-     * @param \Spryker\Zed\Oauth\Business\Model\League\RequestExecutorInterface $requestExecutor
-     */
     public function __construct(
         GrantBuilderInterface $grantTypeBuilder,
         GrantTypeExecutorInterface $grantTypeExecutor,
@@ -44,11 +39,6 @@ class AccessTokenRequestExecutor implements AccessTokenRequestExecutorInterface
         $this->requestExecutor = $requestExecutor;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthResponseTransfer
-     */
     public function executeByRequest(OauthRequestTransfer $oauthRequestTransfer): OauthResponseTransfer
     {
         $oauthGrantTypeConfigurationTransfer = $this->requestExecutor->createOauthGrantTypeConfigurationTransfer($oauthRequestTransfer);

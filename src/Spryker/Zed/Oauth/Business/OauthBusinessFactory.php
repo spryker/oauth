@@ -94,9 +94,6 @@ class OauthBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\Oauth\Business\Model\League\RequestExecutorInterface
-     */
     public function createRequestExecutor(): RequestExecutorInterface
     {
         return new RequestExecutor(
@@ -106,9 +103,6 @@ class OauthBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\Oauth\Business\Model\League\AccessTokenRequestExecutorInterface
-     */
     public function createAccessTokenRequestExecutor(): AccessTokenRequestExecutorInterface
     {
         return new AccessTokenRequestExecutor(
@@ -118,9 +112,6 @@ class OauthBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\Oauth\Business\Model\League\Grant\GrantBuilderInterface
-     */
     public function createGrantTypeBuilder(): GrantBuilderInterface
     {
         return new GrantTypeBuilder(
@@ -129,25 +120,16 @@ class OauthBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\Oauth\Business\Model\League\ResourceServerBuilderInterface
-     */
     public function createResourceServerBuilder(): ResourceServerBuilderInterface
     {
         return new ResourceServerBuilder($this->getConfig(), $this->createRepositoryBuilder());
     }
 
-    /**
-     * @return \Spryker\Zed\Oauth\Business\Model\OauthScopeWriterInterface
-     */
     public function createOauthScopeWriter(): OauthScopeWriterInterface
     {
         return new OauthScopeWriter($this->getEntityManager());
     }
 
-    /**
-     * @return \Spryker\Zed\Oauth\Business\Model\OauthClientWriterInterface
-     */
     public function createOauthClientWriter(): OauthClientWriterInterface
     {
         return new OauthClientWriter(
@@ -170,9 +152,6 @@ class OauthBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\Oauth\Business\Model\League\RepositoryBuilderInterface
-     */
     protected function createRepositoryBuilder(): RepositoryBuilderInterface
     {
         return new RepositoryBuilder(
@@ -193,9 +172,6 @@ class OauthBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\Oauth\Business\Model\League\AuthorizationServerBuilderInterface
-     */
     public function createAuthorizationServerBuilder(): AuthorizationServerBuilderInterface
     {
         return new AuthorizationServerBuilder(
@@ -205,17 +181,11 @@ class OauthBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\Oauth\Business\Model\League\AccessTokenValidatorInterface
-     */
     public function createAccessTokenReader(): AccessTokenValidatorInterface
     {
         return new AccessTokenValidator($this->createResourceServerBuilder()->build());
     }
 
-    /**
-     * @return \Spryker\Zed\Oauth\Business\Model\League\Grant\GrantTypeExecutorInterface
-     */
     public function createGrantTypeExecutor(): GrantTypeExecutorInterface
     {
         return new GrantTypeExecutor(
@@ -224,9 +194,6 @@ class OauthBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\Oauth\Business\Model\League\Grant\GrantTypeConfigurationLoaderInterface
-     */
     public function createGrantTypeConfigurationLoader(): GrantTypeConfigurationLoaderInterface
     {
         return new GrantTypeConfigurationLoader(
@@ -234,9 +201,6 @@ class OauthBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\Oauth\Business\Model\League\Grant\OauthGrantTypeConfigurationLoaderInterface
-     */
     public function createOauthGrantTypeConfigurationLoader(): OauthGrantTypeConfigurationLoaderInterface
     {
         return new OauthGrantTypeConfigurationLoader(
@@ -244,9 +208,6 @@ class OauthBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\Oauth\Business\Model\OauthScopeReaderInterface
-     */
     public function createOauthScopeReader(): OauthScopeReaderInterface
     {
         return new OauthScopeReader(
@@ -254,9 +215,6 @@ class OauthBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\Oauth\Business\Installer\OauthClientInstallerInterface
-     */
     public function createOauthClientInstaller(): OauthClientInstallerInterface
     {
         return new OauthClientInstaller(
@@ -266,9 +224,6 @@ class OauthBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\Oauth\Business\Model\OauthRefreshTokenRevokerInterface
-     */
     public function createOauthRefreshTokenRevoker(): OauthRefreshTokenRevokerInterface
     {
         return new OauthRefreshTokenRevoker(
@@ -280,9 +235,6 @@ class OauthBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\Oauth\Business\Model\OauthExpiredRefreshTokenRemoverInterface
-     */
     public function createOauthExpiredRefreshTokenRemover(): OauthExpiredRefreshTokenRemoverInterface
     {
         return new OauthExpiredRefreshTokenRemover(
@@ -292,9 +244,6 @@ class OauthBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \DateTime
-     */
     protected function createPresentDateTime(): DateTime
     {
         return new DateTime();
@@ -332,9 +281,6 @@ class OauthBusinessFactory extends AbstractBusinessFactory
         return $this->getProvidedDependency(OauthDependencyProvider::PLUGINS_SCOPE_FINDER);
     }
 
-    /**
-     * @return \Spryker\Zed\Oauth\Business\Model\OauthClientReaderInterface
-     */
     public function createOauthClientReader(): OauthClientReaderInterface
     {
         return new OauthClientReader(
@@ -342,17 +288,11 @@ class OauthBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \League\OAuth2\Server\ResponseTypes\ResponseTypeInterface
-     */
     public function createBearerTokenResponse(): ResponseTypeInterface
     {
         return new BearerTokenResponse();
     }
 
-    /**
-     * @return \Spryker\Zed\Oauth\Business\Mapper\OauthRefreshTokenMapperInterface
-     */
     public function createOauthRefreshTokenMapper(): OauthRefreshTokenMapperInterface
     {
         return new OauthRefreshTokenMapper(
@@ -385,9 +325,6 @@ class OauthBusinessFactory extends AbstractBusinessFactory
         return $this->getProvidedDependency(OauthDependencyProvider::PLUGINS_OAUTH_USER_IDENTIFIER_FILTER);
     }
 
-    /**
-     * @return \Spryker\Zed\Oauth\Dependency\Service\OauthToUtilEncodingServiceInterface
-     */
     public function getUtilEncodingService(): OauthToUtilEncodingServiceInterface
     {
         return $this->getProvidedDependency(OauthDependencyProvider::SERVICE_UTIL_ENCODING);
@@ -467,17 +404,11 @@ class OauthBusinessFactory extends AbstractBusinessFactory
         return $this->getProvidedDependency(OauthDependencyProvider::PLUGINS_SCOPE_COLLECTOR);
     }
 
-    /**
-     * @return \Spryker\Zed\Oauth\Dependency\External\OauthToFilesystemInterface
-     */
     public function getFilesystem(): OauthToFilesystemInterface
     {
         return $this->getProvidedDependency(OauthDependencyProvider::FILESYSTEM);
     }
 
-    /**
-     * @return \Spryker\Zed\Oauth\Business\Collector\ScopeCacheCollectorInterface
-     */
     public function createScopeCacheCollector(): ScopeCacheCollectorInterface
     {
         return new ScopeCacheCollector(
@@ -488,9 +419,6 @@ class OauthBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\Oauth\Dependency\External\OauthToYamlInterface
-     */
     public function getYamlDumper(): OauthToYamlInterface
     {
         return $this->getProvidedDependency(OauthDependencyProvider::YAML_DUMPER);

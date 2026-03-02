@@ -21,11 +21,6 @@ use Spryker\Zed\PropelOrm\Business\Runtime\ActiveQuery\Criteria;
  */
 class OauthRepository extends AbstractRepository implements OauthRepositoryInterface
 {
-    /**
-     * @param string $identifier
-     *
-     * @return \Generated\Shared\Transfer\SpyOauthClientEntityTransfer|null
-     */
     public function findClientByIdentifier(string $identifier): ?SpyOauthClientEntityTransfer
     {
         $query = $this->getFactory()
@@ -35,11 +30,6 @@ class OauthRepository extends AbstractRepository implements OauthRepositoryInter
         return $this->buildQueryFromCriteria($query)->findOne();
     }
 
-    /**
-     * @param string $identifier
-     *
-     * @return \Generated\Shared\Transfer\SpyOauthScopeEntityTransfer|null
-     */
     public function findScopeByIdentifier(string $identifier): ?SpyOauthScopeEntityTransfer
     {
         $query = $this->getFactory()

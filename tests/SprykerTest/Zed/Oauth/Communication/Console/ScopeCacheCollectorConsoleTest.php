@@ -28,9 +28,6 @@ class ScopeCacheCollectorConsoleTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testExecuteSuccessful(): void
     {
         //Arrange

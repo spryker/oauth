@@ -23,10 +23,6 @@ class OauthClientWriter implements OauthClientWriterInterface
      */
     protected OauthClientReaderInterface $oauthClientReader;
 
-    /**
-     * @param \Spryker\Zed\Oauth\Persistence\OauthEntityManagerInterface $oauthEntityManager
-     * @param \Spryker\Zed\Oauth\Business\Model\OauthClientReaderInterface $oauthClientReader
-     */
     public function __construct(
         OauthEntityManagerInterface $oauthEntityManager,
         OauthClientReaderInterface $oauthClientReader
@@ -35,11 +31,6 @@ class OauthClientWriter implements OauthClientWriterInterface
         $this->oauthClientReader = $oauthClientReader;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthClientTransfer $oauthClientTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthClientTransfer
-     */
     public function save(OauthClientTransfer $oauthClientTransfer): OauthClientTransfer
     {
         $oauthClientEntityTransfer = new SpyOauthClientEntityTransfer();

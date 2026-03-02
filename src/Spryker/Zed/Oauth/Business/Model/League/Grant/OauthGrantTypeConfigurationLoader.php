@@ -26,12 +26,6 @@ class OauthGrantTypeConfigurationLoader implements OauthGrantTypeConfigurationLo
         $this->oauthRequestGrantTypeConfigurationProviderPlugins = $oauthRequestGrantTypeConfigurationProviderPlugins;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     * @param \Generated\Shared\Transfer\GlueAuthenticationRequestContextTransfer $glueAuthenticationRequestContextTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthGrantTypeConfigurationTransfer|null
-     */
     public function loadGrantTypeConfiguration(
         OauthRequestTransfer $oauthRequestTransfer,
         GlueAuthenticationRequestContextTransfer $glueAuthenticationRequestContextTransfer

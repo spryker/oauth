@@ -51,9 +51,6 @@ class ScopeCacheCollector implements ScopeCacheCollectorInterface
         $this->oauthConfig = $oauthConfig;
     }
 
-    /**
-     * @return void
-     */
     public function collect(): void
     {
         $scopes = [];

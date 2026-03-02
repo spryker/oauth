@@ -44,9 +44,6 @@ class ScopeCacheCollectorTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -55,9 +52,6 @@ class ScopeCacheCollectorTest extends Unit
         $this->setDependency();
     }
 
-    /**
-     * @return void
-     */
     public function tearDown(): void
     {
         parent::tearDown();
@@ -67,9 +61,6 @@ class ScopeCacheCollectorTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testCreateScopesCacheFileAndCheckIfExist(): void
     {
         //Arrange
@@ -82,9 +73,6 @@ class ScopeCacheCollectorTest extends Unit
         $this->assertFileExists($this->testOutputFilePath);
     }
 
-    /**
-     * @return void
-     */
     protected function setDependency(): void
     {
         $this->tester->setDependency(

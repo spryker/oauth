@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\OauthAccessTokenValidationResponseTransfer;
 
 interface AccessTokenValidatorInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\OauthAccessTokenValidationRequestTransfer $authAccessTokenValidationRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthAccessTokenValidationResponseTransfer
-     */
     public function validate(OauthAccessTokenValidationRequestTransfer $authAccessTokenValidationRequestTransfer): OauthAccessTokenValidationResponseTransfer;
 }

@@ -11,8 +11,5 @@ use League\OAuth2\Server\ResourceServer;
 
 interface ResourceServerBuilderInterface
 {
-    /**
-     * @return \League\OAuth2\Server\ResourceServer
-     */
     public function build(): ResourceServer;
 }

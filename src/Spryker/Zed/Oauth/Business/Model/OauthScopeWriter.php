@@ -18,19 +18,11 @@ class OauthScopeWriter implements OauthScopeWriterInterface
      */
     protected $oauthEntityManager;
 
-    /**
-     * @param \Spryker\Zed\Oauth\Persistence\OauthEntityManagerInterface $oauthEntityManager
-     */
     public function __construct(OauthEntityManagerInterface $oauthEntityManager)
     {
         $this->oauthEntityManager = $oauthEntityManager;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthScopeTransfer $oauthScopeTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthScopeTransfer
-     */
     public function save(OauthScopeTransfer $oauthScopeTransfer): OauthScopeTransfer
     {
         $oauthEntityTransfer = new SpyOauthScopeEntityTransfer();

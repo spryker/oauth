@@ -16,9 +16,6 @@ class UserEntity implements UserEntityInterface
      */
     protected $identifier;
 
-    /**
-     * @param string $identifier
-     */
     public function __construct(string $identifier)
     {
         $this->identifier = $identifier;

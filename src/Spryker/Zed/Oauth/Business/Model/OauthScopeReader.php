@@ -17,19 +17,11 @@ class OauthScopeReader implements OauthScopeReaderInterface
      */
     protected $repository;
 
-    /**
-     * @param \Spryker\Zed\Oauth\Persistence\OauthRepositoryInterface $repository
-     */
     public function __construct(OauthRepositoryInterface $repository)
     {
         $this->repository = $repository;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthScopeTransfer $oauthScopeTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthScopeTransfer|null
-     */
     public function findScopeByIdentifier(OauthScopeTransfer $oauthScopeTransfer): ?OauthScopeTransfer
     {
         $oauthScopeTransfer->requireIdentifier();

@@ -14,38 +14,13 @@ use Generated\Shared\Transfer\SpyOauthScopeEntityTransfer;
 
 interface OauthEntityManagerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\SpyOauthAccessTokenEntityTransfer $spyOauthAccessTokenEntityTransfer
-     *
-     * @return \Generated\Shared\Transfer\SpyOauthAccessTokenEntityTransfer
-     */
     public function saveAccessToken(SpyOauthAccessTokenEntityTransfer $spyOauthAccessTokenEntityTransfer): SpyOauthAccessTokenEntityTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\SpyOauthClientEntityTransfer $spyOauthClientEntityTransfer
-     *
-     * @return \Generated\Shared\Transfer\SpyOauthClientEntityTransfer
-     */
     public function saveClient(SpyOauthClientEntityTransfer $spyOauthClientEntityTransfer): SpyOauthClientEntityTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthClientTransfer $oauthClientTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthClientTransfer
-     */
     public function updateClient(OauthClientTransfer $oauthClientTransfer): OauthClientTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\SpyOauthScopeEntityTransfer $spyOauthScopeEntityTransfer
-     *
-     * @return \Generated\Shared\Transfer\SpyOauthScopeEntityTransfer
-     */
     public function saveScope(SpyOauthScopeEntityTransfer $spyOauthScopeEntityTransfer): SpyOauthScopeEntityTransfer;
 
-    /**
-     * @param string $identifier
-     *
-     * @return void
-     */
     public function deleteAccessTokenByIdentifier(string $identifier): void;
 }

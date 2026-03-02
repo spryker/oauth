@@ -21,19 +21,11 @@ class AccessTokenValidator implements AccessTokenValidatorInterface
      */
     protected $resourceServer;
 
-    /**
-     * @param \League\OAuth2\Server\ResourceServer $resourceServer
-     */
     public function __construct(ResourceServer $resourceServer)
     {
         $this->resourceServer = $resourceServer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthAccessTokenValidationRequestTransfer $authAccessTokenValidationRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthAccessTokenValidationResponseTransfer
-     */
     public function validate(
         OauthAccessTokenValidationRequestTransfer $authAccessTokenValidationRequestTransfer
     ): OauthAccessTokenValidationResponseTransfer {

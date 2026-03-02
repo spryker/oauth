@@ -9,8 +9,5 @@ namespace Spryker\Client\Oauth\ResourceServer;
 
 interface ResourceServerCreatorInterface
 {
-    /**
-     * @return \Spryker\Client\Oauth\ResourceServer\ResourceServer
-     */
     public function create(): ResourceServer;
 }

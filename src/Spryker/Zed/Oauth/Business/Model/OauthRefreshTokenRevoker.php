@@ -78,11 +78,6 @@ class OauthRefreshTokenRevoker implements OauthRefreshTokenRevokerInterface
         $this->oauthRefreshTokensReaderPlugins = $oauthRefreshTokensReaderPlugins;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RevokeRefreshTokenRequestTransfer $revokeRefreshTokenRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\RevokeRefreshTokenResponseTransfer
-     */
     public function revokeRefreshToken(RevokeRefreshTokenRequestTransfer $revokeRefreshTokenRequestTransfer): RevokeRefreshTokenResponseTransfer
     {
         $revokeRefreshTokenRequestTransfer->requireRefreshToken()
@@ -115,11 +110,6 @@ class OauthRefreshTokenRevoker implements OauthRefreshTokenRevokerInterface
         return $revokeRefreshTokenResponseTransfer->setIsSuccessful(true);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RevokeRefreshTokenRequestTransfer $revokeRefreshTokenRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\RevokeRefreshTokenResponseTransfer
-     */
     public function revokeAllRefreshTokens(RevokeRefreshTokenRequestTransfer $revokeRefreshTokenRequestTransfer): RevokeRefreshTokenResponseTransfer
     {
         $revokeRefreshTokenRequestTransfer->requireCustomerReference();
@@ -137,11 +127,6 @@ class OauthRefreshTokenRevoker implements OauthRefreshTokenRevokerInterface
         return (new RevokeRefreshTokenResponseTransfer())->setIsSuccessful(true);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthTokenCriteriaFilterTransfer $oauthTokenCriteriaFilterTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthRefreshTokenTransfer|null
-     */
     protected function findOauthRefreshToken(OauthTokenCriteriaFilterTransfer $oauthTokenCriteriaFilterTransfer): ?OauthRefreshTokenTransfer
     {
         $oauthRefreshTokenTransfer = null;
@@ -179,11 +164,6 @@ class OauthRefreshTokenRevoker implements OauthRefreshTokenRevokerInterface
         return new ArrayObject($oauthRefreshTokens);
     }
 
-    /**
-     * @param string $refreshToken
-     *
-     * @return string|null
-     */
     protected function extractRefreshTokenId(string $refreshToken): ?string
     {
         try {

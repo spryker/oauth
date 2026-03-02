@@ -21,42 +21,22 @@ use Spryker\Zed\Kernel\Communication\Controller\AbstractGatewayController;
  */
 class GatewayController extends AbstractGatewayController
 {
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthResponseTransfer
-     */
     public function processAccessTokenRequestAction(OauthRequestTransfer $oauthRequestTransfer): OauthResponseTransfer
     {
         return $this->getFacade()->processAccessTokenRequest($oauthRequestTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthAccessTokenValidationRequestTransfer $authAccessTokenValidationRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthAccessTokenValidationResponseTransfer
-     */
     public function validateAccessTokenAction(
         OauthAccessTokenValidationRequestTransfer $authAccessTokenValidationRequestTransfer
     ): OauthAccessTokenValidationResponseTransfer {
         return $this->getFacade()->validateAccessToken($authAccessTokenValidationRequestTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RevokeRefreshTokenRequestTransfer $revokeRefreshTokenRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\RevokeRefreshTokenResponseTransfer
-     */
     public function revokeRefreshTokenAction(RevokeRefreshTokenRequestTransfer $revokeRefreshTokenRequestTransfer): RevokeRefreshTokenResponseTransfer
     {
         return $this->getFacade()->revokeRefreshToken($revokeRefreshTokenRequestTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RevokeRefreshTokenRequestTransfer $revokeRefreshTokenRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\RevokeRefreshTokenResponseTransfer
-     */
     public function revokeAllRefreshTokensAction(RevokeRefreshTokenRequestTransfer $revokeRefreshTokenRequestTransfer): RevokeRefreshTokenResponseTransfer
     {
         return $this->getFacade()->revokeAllRefreshTokens($revokeRefreshTokenRequestTransfer);

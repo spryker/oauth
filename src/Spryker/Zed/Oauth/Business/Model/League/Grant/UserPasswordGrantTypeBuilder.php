@@ -13,12 +13,6 @@ use Spryker\Zed\Oauth\Business\Model\League\RepositoryBuilderInterface;
 
 class UserPasswordGrantTypeBuilder implements GrantTypeBuilderInterface
 {
-    /**
-     * @param \Spryker\Zed\Oauth\Business\Model\League\RepositoryBuilderInterface $repositoryBuilder
-     * @param \DateInterval $refreshTokenTTL
-     *
-     * @return \Spryker\Zed\Oauth\Business\Model\League\Grant\GrantTypeInterface
-     */
     public function buildGrant(
         RepositoryBuilderInterface $repositoryBuilder,
         DateInterval $refreshTokenTTL

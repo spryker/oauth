@@ -60,9 +60,6 @@ class ScopeRepositoryTest extends Unit
      */
     protected const CLIENT_ENTITY_NAME = 'Customer client';
 
-    /**
-     * @return void
-     */
     public function testFinalizeScopesWithDefaultScopesInOauthScopeProviderPlugins(): void
     {
         //Arrange
@@ -90,9 +87,6 @@ class ScopeRepositoryTest extends Unit
         $this->assertSame(static::SCOPE_SECOND_NAME, $scopeEntities[static::SCOPE_SECOND_NAME]->getIdentifier());
     }
 
-    /**
-     * @return void
-     */
     public function testFinalizeScopesWithoutDefaultScopesInOauthScopeProviderPlugins(): void
     {
         //Arrange
@@ -145,11 +139,6 @@ class ScopeRepositoryTest extends Unit
         return $oauthScopeProviderPluginMock;
     }
 
-    /**
-     * @param string $scope
-     *
-     * @return \Spryker\Zed\Oauth\Business\Model\League\Entities\ScopeEntity
-     */
     protected function createScopeEntity(string $scope): ScopeEntity
     {
         $scopeEntity = new ScopeEntity();
@@ -158,12 +147,6 @@ class ScopeRepositoryTest extends Unit
         return $scopeEntity;
     }
 
-    /**
-     * @param string $identifier
-     * @param string $name
-     *
-     * @return \Spryker\Zed\Oauth\Business\Model\League\Entities\ClientEntity
-     */
     protected function createClientEntity(string $identifier, string $name): ClientEntity
     {
         $clientEntity = new ClientEntity();
@@ -173,11 +156,6 @@ class ScopeRepositoryTest extends Unit
         return $clientEntity;
     }
 
-    /**
-     * @param string $identifier
-     *
-     * @return \Generated\Shared\Transfer\OauthScopeTransfer
-     */
     protected function createOauthScopeTransfer(string $identifier): OauthScopeTransfer
     {
         $oauthScopeTransfer = new OauthScopeTransfer();

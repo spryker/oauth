@@ -156,12 +156,6 @@ class RefreshTokenGrantType extends AbstractGrant implements GrantTypeInterface
         return $refreshTokenData;
     }
 
-    /**
-     * @param string $requestEvent
-     * @param \Psr\Http\Message\ServerRequestInterface $request
-     *
-     * @return \League\OAuth2\Server\RequestEvent
-     */
     protected function createRequestEvent(string $requestEvent, ServerRequestInterface $request): RequestEvent
     {
         return new RequestEvent($requestEvent, $request);

@@ -18,19 +18,11 @@ class AccessGrantExecutor implements AccessGrantExecutorInterface
      */
     protected $grants;
 
-    /**
-     * @param array $grantTypes
-     */
     public function __construct(array $grantTypes)
     {
         $this->grants = $grantTypes;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthResponseTransfer
-     */
     public function executeByRequest(OauthRequestTransfer $oauthRequestTransfer): OauthResponseTransfer
     {
         if (!isset($this->grants[$oauthRequestTransfer->getGrantType()])) {

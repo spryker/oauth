@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\JwtTokenTransfer;
 
 interface JwtTokenParserInterface
 {
-    /**
-     * @param string $jwtToken
-     *
-     * @return \Generated\Shared\Transfer\JwtTokenTransfer|null
-     */
     public function parse(string $jwtToken): ?JwtTokenTransfer;
 }

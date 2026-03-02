@@ -15,33 +15,15 @@ use Spryker\Zed\Oauth\Business\Model\League\Repositories\RefreshTokenRepositoryI
 
 interface RepositoryBuilderInterface
 {
-    /**
-     * @return \League\OAuth2\Server\Repositories\ClientRepositoryInterface
-     */
     public function createClientRepository(): ClientRepositoryInterface;
 
-    /**
-     * @return \League\OAuth2\Server\Repositories\ScopeRepositoryInterface
-     */
     public function createScopeRepository(): ScopeRepositoryInterface;
 
-    /**
-     * @return \League\OAuth2\Server\Repositories\AccessTokenRepositoryInterface
-     */
     public function createAccessTokenRepository(): AccessTokenRepositoryInterface;
 
-    /**
-     * @return \League\OAuth2\Server\Repositories\UserRepositoryInterface
-     */
     public function createUserRepository(): UserRepositoryInterface;
 
-    /**
-     * @return \League\OAuth2\Server\Repositories\UserRepositoryInterface
-     */
     public function createOauthUserRepository(): UserRepositoryInterface;
 
-    /**
-     * @return \Spryker\Zed\Oauth\Business\Model\League\Repositories\RefreshTokenRepositoryInterface
-     */
     public function createRefreshTokenRepository(): RefreshTokenRepositoryInterface;
 }

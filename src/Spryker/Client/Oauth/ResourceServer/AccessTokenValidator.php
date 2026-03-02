@@ -84,12 +84,6 @@ class AccessTokenValidator implements AccessTokenValidatorInterface
         return $oauthAccessTokenValidationResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthAccessTokenValidationRequestTransfer $authAccessTokenValidationRequestTransfer
-     * @param \Generated\Shared\Transfer\OauthAccessTokenValidationResponseTransfer $oauthAccessTokenValidationResponseTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthAccessTokenValidationResponseTransfer
-     */
     protected function executeAccessTokenValidatorPlugins(
         OauthAccessTokenValidationRequestTransfer $authAccessTokenValidationRequestTransfer,
         OauthAccessTokenValidationResponseTransfer $oauthAccessTokenValidationResponseTransfer

@@ -28,11 +28,6 @@ class AuthorizationServerBuilder implements AuthorizationServerBuilderInterface
      */
     protected $responseType;
 
-    /**
-     * @param \Spryker\Zed\Oauth\OauthConfig $oauthConfig
-     * @param \Spryker\Zed\Oauth\Business\Model\League\RepositoryBuilderInterface $repositoryBuilder
-     * @param \League\OAuth2\Server\ResponseTypes\ResponseTypeInterface $responseType
-     */
     public function __construct(
         OauthConfig $oauthConfig,
         RepositoryBuilderInterface $repositoryBuilder,
@@ -43,9 +38,6 @@ class AuthorizationServerBuilder implements AuthorizationServerBuilderInterface
         $this->responseType = $responseType;
     }
 
-    /**
-     * @return \League\OAuth2\Server\AuthorizationServer
-     */
     public function build(): OauthServer
     {
         return new OauthServer(

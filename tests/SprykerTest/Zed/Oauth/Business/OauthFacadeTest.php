@@ -100,9 +100,6 @@ class OauthFacadeTest extends Unit
      */
     protected const IDENTIFIER_PASSWORD = 'password';
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -110,9 +107,6 @@ class OauthFacadeTest extends Unit
         $this->customerTransfer = $this->tester->haveCustomer();
     }
 
-    /**
-     * @return void
-     */
     public function testAccessTokenShouldReturnSuccessWhenValid(): void
     {
         $this->createTestClient();
@@ -125,9 +119,6 @@ class OauthFacadeTest extends Unit
         $this->assertTrue($oauthResponseTransfer->getIsValid());
     }
 
-    /**
-     * @return void
-     */
     public function testAccessTokenShouldReturnFailureWhenClientCredentialsInValid(): void
     {
         $this->createTestClient();
@@ -144,9 +135,6 @@ class OauthFacadeTest extends Unit
         $this->assertFalse($oauthResponseTransfer->getIsValid());
     }
 
-    /**
-     * @return void
-     */
     public function testValidateAccessTokenShouldSuccessWithValidToken(): void
     {
         $this->createTestClient();
@@ -167,9 +155,6 @@ class OauthFacadeTest extends Unit
         $this->assertTrue($oauthAccessTokenValidationResponseTransfer->getIsValid());
     }
 
-    /**
-     * @return void
-     */
     public function testValidateAccessTokenShouldFailedWithInValidToken(): void
     {
         $oauthAccessTokenValidationRequestTransfer = new OauthAccessTokenValidationRequestTransfer();
@@ -183,9 +168,6 @@ class OauthFacadeTest extends Unit
         $this->assertFalse($oauthAccessTokenValidationResponseTransfer->getIsValid());
     }
 
-    /**
-     * @return void
-     */
     public function testSaveScopeShouldPersist(): void
     {
         $oauthScopeTransfer = (new OauthScopeTransfer())
@@ -197,9 +179,6 @@ class OauthFacadeTest extends Unit
         $this->assertNotEmpty($oauthScopeTransfer->getIdOauthScope());
     }
 
-    /**
-     * @return void
-     */
     public function testSaveClientShouldPersist(): void
     {
         $oauthClientTransfer = (new OauthClientTransfer())
@@ -214,9 +193,6 @@ class OauthFacadeTest extends Unit
         $this->assertNotEmpty($oauthClientTransfer->getIdOauthClient());
     }
 
-    /**
-     * @return void
-     */
     public function testFindClientByIdentifier(): void
     {
         $oauthClientTransfer = (new OauthClientTransfer())
@@ -233,9 +209,6 @@ class OauthFacadeTest extends Unit
         $this->assertNotNull($oauthClientTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testFindScopeByIdentifier(): void
     {
         $oauthScopeTransfer = (new OauthScopeTransfer())
@@ -249,9 +222,6 @@ class OauthFacadeTest extends Unit
         $this->assertNotEmpty($oauthScopeTransfer->getIdOauthScope());
     }
 
-    /**
-     * @return void
-     */
     public function testFindScopesByIdentifiers(): void
     {
         $identifiers = ['identifier', 'test_identifier'];
@@ -275,9 +245,6 @@ class OauthFacadeTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testRevokeRefreshTokenShouldSuccessWithValidToken(): void
     {
         // Arrange
@@ -300,9 +267,6 @@ class OauthFacadeTest extends Unit
         $this->assertTrue($revokerRefreshTokenResponseTransfer->getIsSuccessful());
     }
 
-    /**
-     * @return void
-     */
     public function testRevokeRefreshTokenShouldFailedWithInvalidToken(): void
     {
         // Arrange
@@ -319,9 +283,6 @@ class OauthFacadeTest extends Unit
         $this->assertFalse($revokerRefreshTokenResponseTransfer->getIsSuccessful());
     }
 
-    /**
-     * @return void
-     */
     public function testRevokeRefreshTokensShouldSuccessWithValidCustomer(): void
     {
         // Arrange
@@ -390,9 +351,6 @@ class OauthFacadeTest extends Unit
         $this->assertEquals($matches, $this->tester->getOauthRefreshTokensCount());
     }
 
-    /**
-     * @return void
-     */
     public function testAccessTokenShouldReturnSuccessWhenValidForBackendApi(): void
     {
         //Arrange
@@ -412,9 +370,6 @@ class OauthFacadeTest extends Unit
         $this->assertTrue($oauthResponseTransfer->getIsValid());
     }
 
-    /**
-     * @return void
-     */
     public function testAccessTokenShouldReturnFailedWhenInvalidForBackendApi(): void
     {
         //Arrange
@@ -434,9 +389,6 @@ class OauthFacadeTest extends Unit
         $this->assertFalse($oauthResponseTransfer->getIsValid());
     }
 
-    /**
-     * @return void
-     */
     public function testAccessTokenShouldReturnSuccessWhenValidForStorefrontApi(): void
     {
         //Arrange
@@ -456,9 +408,6 @@ class OauthFacadeTest extends Unit
         $this->assertTrue($oauthResponseTransfer->getIsValid());
     }
 
-    /**
-     * @return void
-     */
     public function testAccessTokenShouldReturnFailedWhenInalidForStorefrontApi(): void
     {
         //Arrange
@@ -478,9 +427,6 @@ class OauthFacadeTest extends Unit
         $this->assertFalse($oauthResponseTransfer->getIsValid());
     }
 
-    /**
-     * @return void
-     */
     public function testProcessAccessTokenRequestShouldReturnNewTokenEveryTimeForSameUser(): void
     {
         // Arrange
@@ -503,11 +449,6 @@ class OauthFacadeTest extends Unit
         $this->assertNotSame($oauthResponseTransfer1->getAccessToken(), $oauthResponseTransfer2->getAccessToken());
     }
 
-    /**
-     * @param bool|null $isSuccess
-     *
-     * @return void
-     */
     protected function setUserProviderPluginMock(?bool $isSuccess = true): void
     {
         $userProviderPluginMock = $this->getMockBuilder(OauthUserProviderPluginInterface::class)
@@ -545,9 +486,6 @@ class OauthFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     protected function setGrantTypeConfigurationProviderPluginMock(): void
     {
         $grantTypeConfigurationProviderPluginMock = $this->getMockBuilder(OauthGrantTypeConfigurationProviderPluginInterface::class)
@@ -572,9 +510,6 @@ class OauthFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     protected function createTestClient(): void
     {
         $oauthClientEntity = SpyOauthClientQuery::create()
@@ -606,9 +541,6 @@ class OauthFacadeTest extends Unit
         return $oauthRequestTransfer;
     }
 
-    /**
-     * @return \Spryker\Zed\Oauth\OauthConfig
-     */
     protected function getOauthConfigMock(): OauthConfig
     {
         $oauthConfigMock = $this->createMock(OauthConfig::class);
@@ -624,9 +556,6 @@ class OauthFacadeTest extends Unit
         return $oauthConfigMock;
     }
 
-    /**
-     * @return void
-     */
     protected function setOauthDependencies(): void
     {
         $this->tester->setDependency(OauthDependencyProvider::PLUGINS_OAUTH_REFRESH_TOKEN_READER, [
@@ -643,11 +572,6 @@ class OauthFacadeTest extends Unit
         ]);
     }
 
-    /**
-     * @param \Spryker\Zed\Oauth\OauthConfig|null $oauthConfigMock
-     *
-     * @return \Spryker\Zed\Kernel\Business\AbstractFacade
-     */
     protected function getOauthFacade(?OauthConfig $oauthConfigMock = null): AbstractFacade
     {
         if (!$oauthConfigMock) {
@@ -697,11 +621,6 @@ class OauthFacadeTest extends Unit
         );
     }
 
-    /**
-     * @param bool|null $isSuccess
-     *
-     * @return void
-     */
     protected function setOauthUserProviderPluginMock(?bool $isSuccess = true): void
     {
         $userProviderPluginMock = $this->getMockBuilder(OauthUserProviderPluginInterface::class)

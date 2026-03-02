@@ -23,11 +23,6 @@ class OauthEntityManager extends AbstractEntityManager implements OauthEntityMan
      */
     protected const COLUMN_REVOKED_AT = 'RevokedAt';
 
-    /**
-     * @param \Generated\Shared\Transfer\SpyOauthAccessTokenEntityTransfer $spyOauthAccessTokenEntityTransfer
-     *
-     * @return \Generated\Shared\Transfer\SpyOauthAccessTokenEntityTransfer
-     */
     public function saveAccessToken(SpyOauthAccessTokenEntityTransfer $spyOauthAccessTokenEntityTransfer): SpyOauthAccessTokenEntityTransfer
     {
         /** @var \Generated\Shared\Transfer\SpyOauthAccessTokenEntityTransfer $spyOauthAccessTokenEntityTransfer */
@@ -36,11 +31,6 @@ class OauthEntityManager extends AbstractEntityManager implements OauthEntityMan
         return $spyOauthAccessTokenEntityTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SpyOauthClientEntityTransfer $spyOauthClientEntityTransfer
-     *
-     * @return \Generated\Shared\Transfer\SpyOauthClientEntityTransfer
-     */
     public function saveClient(SpyOauthClientEntityTransfer $spyOauthClientEntityTransfer): SpyOauthClientEntityTransfer
     {
         /** @var \Generated\Shared\Transfer\SpyOauthClientEntityTransfer $spyOauthClientEntityTransfer */
@@ -49,11 +39,6 @@ class OauthEntityManager extends AbstractEntityManager implements OauthEntityMan
         return $spyOauthClientEntityTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthClientTransfer $oauthClientTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthClientTransfer
-     */
     public function updateClient(OauthClientTransfer $oauthClientTransfer): OauthClientTransfer
     {
         $oauthClient = $this->getFactory()->createSpyOauthClient();
@@ -64,11 +49,6 @@ class OauthEntityManager extends AbstractEntityManager implements OauthEntityMan
         return $oauthClientTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SpyOauthScopeEntityTransfer $spyOauthScopeEntityTransfer
-     *
-     * @return \Generated\Shared\Transfer\SpyOauthScopeEntityTransfer
-     */
     public function saveScope(SpyOauthScopeEntityTransfer $spyOauthScopeEntityTransfer): SpyOauthScopeEntityTransfer
     {
         /** @var \Generated\Shared\Transfer\SpyOauthScopeEntityTransfer $spyOauthScopeEntityTransfer */
@@ -77,11 +57,6 @@ class OauthEntityManager extends AbstractEntityManager implements OauthEntityMan
         return $spyOauthScopeEntityTransfer;
     }
 
-    /**
-     * @param string $identifier
-     *
-     * @return void
-     */
     public function deleteAccessTokenByIdentifier(string $identifier): void
     {
         /** @var \Orm\Zed\Oauth\Persistence\SpyOauthAccessToken|null $oauthAccessTokenEntity */

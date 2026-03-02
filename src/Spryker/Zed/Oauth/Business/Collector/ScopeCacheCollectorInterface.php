@@ -9,8 +9,5 @@ namespace Spryker\Zed\Oauth\Business\Collector;
 
 interface ScopeCacheCollectorInterface
 {
-    /**
-     * @return void
-     */
     public function collect(): void;
 }

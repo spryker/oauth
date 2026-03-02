@@ -17,19 +17,11 @@ class OauthClientReader implements OauthClientReaderInterface
      */
     protected $repository;
 
-    /**
-     * @param \Spryker\Zed\Oauth\Persistence\OauthRepositoryInterface $repository
-     */
     public function __construct(OauthRepositoryInterface $repository)
     {
         $this->repository = $repository;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthClientTransfer $oauthClientTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthClientTransfer|null
-     */
     public function findClientByIdentifier(OauthClientTransfer $oauthClientTransfer): ?OauthClientTransfer
     {
         $oauthClientTransfer->requireIdentifier();

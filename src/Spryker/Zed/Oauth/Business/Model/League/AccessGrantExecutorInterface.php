@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\OauthResponseTransfer;
 
 interface AccessGrantExecutorInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthResponseTransfer
-     */
     public function executeByRequest(OauthRequestTransfer $oauthRequestTransfer): OauthResponseTransfer;
 }

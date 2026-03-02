@@ -21,41 +21,26 @@ use Spryker\Zed\Oauth\Persistence\Propel\Mapper\OauthTokenMapper;
  */
 class OauthPersistenceFactory extends AbstractPersistenceFactory
 {
-    /**
-     * @return \Orm\Zed\Oauth\Persistence\SpyOauthClientQuery
-     */
     public function createOauthClientQuery(): SpyOauthClientQuery
     {
         return SpyOauthClientQuery::create();
     }
 
-    /**
-     * @return \Orm\Zed\Oauth\Persistence\SpyOauthAccessTokenQuery
-     */
     public function createAccessTokenQuery(): SpyOauthAccessTokenQuery
     {
         return SpyOauthAccessTokenQuery::create();
     }
 
-    /**
-     * @return \Orm\Zed\Oauth\Persistence\SpyOauthScopeQuery
-     */
     public function createScopeQuery(): SpyOauthScopeQuery
     {
         return SpyOauthScopeQuery::create();
     }
 
-    /**
-     * @return \Spryker\Zed\Oauth\Persistence\Propel\Mapper\OauthTokenMapper
-     */
     public function createOauthTokenMapper(): OauthTokenMapper
     {
         return new OauthTokenMapper();
     }
 
-    /**
-     * @return \Orm\Zed\Oauth\Persistence\SpyOauthClient
-     */
     public function createSpyOauthClient(): SpyOauthClient
     {
         return new SpyOauthClient();

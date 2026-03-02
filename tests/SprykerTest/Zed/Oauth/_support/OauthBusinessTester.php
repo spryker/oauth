@@ -59,12 +59,6 @@ class OauthBusinessTester extends Actor
      */
     protected const FAKE_PASSWORD = 'change123';
 
-    /**
-     * @param string $customerReference
-     * @param string|null $refreshToken
-     *
-     * @return \Generated\Shared\Transfer\RevokeRefreshTokenRequestTransfer
-     */
     public function createRevokeRefreshTokenRequestTransfer(string $customerReference, ?string $refreshToken = null): RevokeRefreshTokenRequestTransfer
     {
         $revokeRefreshTokenRequestTransfer = (new RevokeRefreshTokenRequestBuilder())
@@ -74,9 +68,6 @@ class OauthBusinessTester extends Actor
         return $revokeRefreshTokenRequestTransfer;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\CustomerTransfer
-     */
     public function createCustomerTransfer(): CustomerTransfer
     {
         return $this->haveCustomer([
@@ -85,27 +76,16 @@ class OauthBusinessTester extends Actor
         ]);
     }
 
-    /**
-     * @return int
-     */
     public function getOauthRefreshTokensCount(): int
     {
         return SpyOauthRefreshTokenQuery::create()->count();
     }
 
-    /**
-     * @return int
-     */
     public function deleteAllOauthRefreshTokens(): int
     {
         return SpyOauthRefreshTokenQuery::create()->deleteAll();
     }
 
-    /**
-     * @param string $applicationContext
-     *
-     * @return \Generated\Shared\Transfer\GlueAuthenticationRequestContextTransfer
-     */
     public function createGlueAuthenticationRequestContextTransfer(string $applicationContext): GlueAuthenticationRequestContextTransfer
     {
         $glueAuthenticationRequestContextTransfer = new GlueAuthenticationRequestContextTransfer();
@@ -114,13 +94,6 @@ class OauthBusinessTester extends Actor
         return $glueAuthenticationRequestContextTransfer;
     }
 
-    /**
-     * @param string $username
-     * @param string $applicationContext
-     * @param string $grantType
-     *
-     * @return \Generated\Shared\Transfer\OauthRequestTransfer
-     */
     public function createOauthRequestTransfer(
         string $username,
         string $applicationContext,

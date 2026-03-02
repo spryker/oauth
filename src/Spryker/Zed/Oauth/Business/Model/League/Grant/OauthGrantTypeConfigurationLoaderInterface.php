@@ -13,12 +13,6 @@ use Generated\Shared\Transfer\OauthRequestTransfer;
 
 interface OauthGrantTypeConfigurationLoaderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     * @param \Generated\Shared\Transfer\GlueAuthenticationRequestContextTransfer $glueAuthenticationRequestContextTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthGrantTypeConfigurationTransfer|null
-     */
     public function loadGrantTypeConfiguration(
         OauthRequestTransfer $oauthRequestTransfer,
         GlueAuthenticationRequestContextTransfer $glueAuthenticationRequestContextTransfer

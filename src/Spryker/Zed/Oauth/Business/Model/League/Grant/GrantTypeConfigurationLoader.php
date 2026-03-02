@@ -29,11 +29,6 @@ class GrantTypeConfigurationLoader implements GrantTypeConfigurationLoaderInterf
         $this->oauthGrantTypeConfigurationProviderPlugins = $oauthGrantTypeConfigurationProviderPlugins;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthGrantTypeConfigurationTransfer|null
-     */
     public function loadGrantTypeConfigurationByGrantType(OauthRequestTransfer $oauthRequestTransfer): ?OauthGrantTypeConfigurationTransfer
     {
         foreach ($this->oauthGrantTypeConfigurationProviderPlugins as $oauthGrantTypeConfigurationProviderPlugin) {

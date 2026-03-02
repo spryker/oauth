@@ -27,9 +27,6 @@ use Spryker\Client\Oauth\Zed\OauthStubInterface;
  */
 class OauthFactory extends AbstractFactory
 {
-    /**
-     * @return \Spryker\Client\Oauth\Zed\OauthStubInterface
-     */
     public function createOauthStub(): OauthStubInterface
     {
         return new OauthStub($this->getZedRequestClient());
@@ -58,9 +55,6 @@ class OauthFactory extends AbstractFactory
         return new ResourceServerBuilder($this->getConfig(), $this->createAccessTokenRepository());
     }
 
-    /**
-     * @return \Spryker\Client\Oauth\ResourceServer\AccessTokenValidatorInterface
-     */
     public function createOauthAccessTokenValidator(): AccessTokenValidatorInterface
     {
         return new AccessTokenValidator(
@@ -69,9 +63,6 @@ class OauthFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\Oauth\ResourceServer\ResourceServerCreatorInterface
-     */
     public function createResourceServerCreator(): ResourceServerCreatorInterface
     {
         return new ResourceServerCreator(
@@ -81,25 +72,16 @@ class OauthFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \League\OAuth2\Server\Repositories\AccessTokenRepositoryInterface
-     */
     public function createAccessTokenRepository(): AccessTokenRepositoryInterface
     {
         return new AccessTokenRepository();
     }
 
-    /**
-     * @return \Spryker\Client\Oauth\Dependency\Client\OauthToZedRequestClientInterface
-     */
     public function getZedRequestClient(): OauthToZedRequestClientInterface
     {
         return $this->getProvidedDependency(OauthDependencyProvider::CLIENT_ZED_REQUEST);
     }
 
-    /**
-     * @return \Spryker\Client\Oauth\ResourceServer\KeyLoader\KeyLoaderInterface
-     */
     public function createKeyLoader(): KeyLoaderInterface
     {
         return new KeyLoader($this->getKeyLoaderPlugins());

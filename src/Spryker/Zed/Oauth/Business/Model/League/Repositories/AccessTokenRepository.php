@@ -128,11 +128,6 @@ class AccessTokenRepository implements AccessTokenRepositoryInterface
         return false;
     }
 
-    /**
-     * @param string $userIdentifier
-     *
-     * @return string
-     */
     protected function filterUserIdentifier(string $userIdentifier): string
     {
         $decodedUserIdentifier = $this->utilEncodingService->decodeJson($userIdentifier, true);

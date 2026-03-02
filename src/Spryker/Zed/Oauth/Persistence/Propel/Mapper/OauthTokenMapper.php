@@ -12,12 +12,6 @@ use Orm\Zed\Oauth\Persistence\SpyOauthAccessToken;
 
 class OauthTokenMapper
 {
-    /**
-     * @param \Orm\Zed\Oauth\Persistence\SpyOauthAccessToken $oauthAccessTokenEntity
-     * @param \Generated\Shared\Transfer\OauthAccessTokenTransfer $oauthAccessTokenTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthAccessTokenTransfer
-     */
     public function mapOauthAccessTokenEntityToOauthAccessTokenTransfer(
         SpyOauthAccessToken $oauthAccessTokenEntity,
         OauthAccessTokenTransfer $oauthAccessTokenTransfer

@@ -42,19 +42,11 @@ class TokenDataExtractor implements TokenDataExtractorInterface
      */
     protected $jwtTokenParser;
 
-    /**
-     * @param \Spryker\Service\Oauth\Jwt\JwtTokenParserInterface $jwtTokenParser
-     */
     public function __construct(JwtTokenParserInterface $jwtTokenParser)
     {
         $this->jwtTokenParser = $jwtTokenParser;
     }
 
-    /**
-     * @param string $accessToken
-     *
-     * @return \Generated\Shared\Transfer\OauthAccessTokenDataTransfer
-     */
     public function extractAccessTokenData(string $accessToken): OauthAccessTokenDataTransfer
     {
         $jwtToken = $this->jwtTokenParser->parse($accessToken);
@@ -65,11 +57,6 @@ class TokenDataExtractor implements TokenDataExtractorInterface
         return $this->createJwtTokenToOauthTokenDataTransfer($jwtToken);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\JwtTokenTransfer $jwtTokenTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthAccessTokenDataTransfer
-     */
     protected function createJwtTokenToOauthTokenDataTransfer(JwtTokenTransfer $jwtTokenTransfer): OauthAccessTokenDataTransfer
     {
         $claims = $jwtTokenTransfer->getClaims();

@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\OauthGrantTypeConfigurationTransfer;
 
 interface GrantBuilderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\OauthGrantTypeConfigurationTransfer $oauthGrantTypeConfigurationTransfer
-     *
-     * @return \Spryker\Zed\Oauth\Business\Model\League\Grant\GrantTypeInterface
-     */
     public function buildGrant(OauthGrantTypeConfigurationTransfer $oauthGrantTypeConfigurationTransfer): GrantTypeInterface;
 }
