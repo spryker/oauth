@@ -14,6 +14,7 @@ use League\OAuth2\Server\Grant\AbstractGrant;
 use League\OAuth2\Server\RequestEvent;
 use League\OAuth2\Server\ResponseTypes\ResponseTypeInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Spryker\Zed\Oauth\Business\Model\League\Entities\ScopeEntity;
 use Spryker\Zed\Oauth\OauthConfig;
 
 class RefreshTokenGrantType extends AbstractGrant implements GrantTypeInterface
@@ -57,6 +58,32 @@ class RefreshTokenGrantType extends AbstractGrant implements GrantTypeInterface
      * @var string
      */
     protected const REQUEST_PARAMETER_SCOPE = 'scope';
+
+    /**
+     * The scopes requested on a refresh may only narrow the scopes of the old refresh token, which
+     * {@link respondToAccessTokenRequest()} enforces; a repository lookup would additionally drop the
+     * scopes no scope finder or installer knows, such as the user type scopes of Backend API tokens.
+     *
+     * @param array<string>|string|null $scopes
+     * @param string|null $redirectUri
+     *
+     * @return array<\League\OAuth2\Server\Entities\ScopeEntityInterface>
+     */
+    public function validateScopes($scopes, $redirectUri = null): array
+    {
+        if (is_string($scopes)) {
+            $scopes = $this->convertScopesQueryStringToArray($scopes);
+        }
+
+        $validScopes = [];
+        foreach ($scopes ?? [] as $scopeIdentifier) {
+            $scope = new ScopeEntity();
+            $scope->setIdentifier($scopeIdentifier);
+            $validScopes[] = $scope;
+        }
+
+        return $validScopes;
+    }
 
     /**
      * @param \Psr\Http\Message\ServerRequestInterface $request
@@ -159,5 +186,17 @@ class RefreshTokenGrantType extends AbstractGrant implements GrantTypeInterface
     protected function createRequestEvent(string $requestEvent, ServerRequestInterface $request): RequestEvent
     {
         return new RequestEvent($requestEvent, $request);
+    }
+
+    /**
+     * @param string $scopes
+     *
+     * @return array<string>
+     */
+    protected function convertScopesQueryStringToArray(string $scopes): array
+    {
+        return array_filter(explode(static::SCOPE_DELIMITER_STRING, trim($scopes)), function ($scope) {
+            return $scope !== '';
+        });
     }
 }
