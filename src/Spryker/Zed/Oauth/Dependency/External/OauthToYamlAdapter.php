@@ -12,12 +12,7 @@ use Symfony\Component\Yaml\Yaml;
 class OauthToYamlAdapter implements OauthToYamlInterface
 {
     /**
-     * @param mixed $input
-     * @param int $inline
-     * @param int $indent
-     * @param int $flags
-     *
-     * @return string
+     * {@inheritDoc}
      */
     public function dump(
         $input,
