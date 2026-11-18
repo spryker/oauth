@@ -12,4 +12,6 @@ use Generated\Shared\Transfer\OauthClientTransfer;
 interface OauthClientWriterInterface
 {
     public function save(OauthClientTransfer $oauthClientTransfer): OauthClientTransfer;
+
+    public function update(OauthClientTransfer $oauthClientTransfer): ?OauthClientTransfer;
 }

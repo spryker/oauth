@@ -79,6 +79,19 @@ interface OauthFacadeInterface
 
     /**
      * Specification:
+     * - Requires `OauthClientTransfer.identifier` and `OauthClientTransfer.name` to be set.
+     * - Finds the stored OAuth client by `OauthClientTransfer.identifier`.
+     * - Returns `null` when no client has this identifier.
+     * - Updates the client's `name` and `redirectUri` with the values of the given transfer; an unset `redirectUri` keeps the stored one.
+     * - Keeps the stored `secret` and `isConfidential`, so a public client without a secret can be updated.
+     * - Returns the updated client.
+     *
+     * @api
+     */
+    public function updateClient(OauthClientTransfer $oauthClientTransfer): ?OauthClientTransfer;
+
+    /**
+     * Specification:
      * - Retrieves a oauth scope using the identifier within the provided transfer.
      *
      * @api

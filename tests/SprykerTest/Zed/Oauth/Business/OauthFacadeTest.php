@@ -209,6 +209,62 @@ class OauthFacadeTest extends Unit
         $this->assertNotNull($oauthClientTransfer);
     }
 
+    public function testGivenPublicClientWithoutSecretWhenUpdateClientIsCalledThenNameAndRedirectUriAreUpdatedAndSecretStaysEmpty(): void
+    {
+        // Arrange
+        $clientIdentifier = $this->haveOauthClient(null, false);
+
+        // Act
+        $updatedOauthClientTransfer = $this->getOauthFacade()->updateClient(
+            (new OauthClientTransfer())
+                ->setIdentifier($clientIdentifier)
+                ->setName('renamed client')
+                ->setRedirectUri('https://renamed.example.com/callback'),
+        );
+
+        // Assert
+        $this->assertNotNull($updatedOauthClientTransfer);
+        $oauthClientEntity = SpyOauthClientQuery::create()->findOneByIdentifier($clientIdentifier);
+        $this->assertSame('renamed client', $oauthClientEntity->getName());
+        $this->assertSame('https://renamed.example.com/callback', $oauthClientEntity->getRedirectUri());
+        $this->assertNull($oauthClientEntity->getSecret());
+        $this->assertFalse($oauthClientEntity->getIsConfidential());
+    }
+
+    public function testGivenConfidentialClientWhenUpdateClientIsCalledWithoutSecretThenStoredSecretIsKept(): void
+    {
+        // Arrange
+        $secretHash = password_hash(static::CLIENT_SECRET, PASSWORD_BCRYPT);
+        $clientIdentifier = $this->haveOauthClient($secretHash, true);
+
+        // Act
+        $this->getOauthFacade()->updateClient(
+            (new OauthClientTransfer())->setIdentifier($clientIdentifier)->setName('renamed client'),
+        );
+
+        // Assert
+        $oauthClientEntity = SpyOauthClientQuery::create()->findOneByIdentifier($clientIdentifier);
+        $this->assertSame('renamed client', $oauthClientEntity->getName());
+        $this->assertSame('https://client.example.com/callback', $oauthClientEntity->getRedirectUri());
+        $this->assertSame($secretHash, $oauthClientEntity->getSecret());
+        $this->assertTrue($oauthClientEntity->getIsConfidential());
+    }
+
+    public function testGivenUnknownIdentifierWhenUpdateClientIsCalledThenNullIsReturnedAndNoClientIsCreated(): void
+    {
+        // Arrange
+        $clientIdentifier = sprintf('unknown-client-%s', uniqid());
+
+        // Act
+        $updatedOauthClientTransfer = $this->getOauthFacade()->updateClient(
+            (new OauthClientTransfer())->setIdentifier($clientIdentifier)->setName('client name'),
+        );
+
+        // Assert
+        $this->assertNull($updatedOauthClientTransfer);
+        $this->assertSame(0, SpyOauthClientQuery::create()->filterByIdentifier($clientIdentifier)->count());
+    }
+
     public function testFindScopeByIdentifier(): void
     {
         $oauthScopeTransfer = (new OauthScopeTransfer())
@@ -570,6 +626,21 @@ class OauthFacadeTest extends Unit
         $this->tester->setDependency(OauthDependencyProvider::PLUGINS_OAUTH_EXPIRED_REFRESH_TOKEN_REMOVER, [
             new OauthExpiredRefreshTokenRemoverPlugin(),
         ]);
+    }
+
+    protected function haveOauthClient(?string $secret, bool $isConfidential): string
+    {
+        $clientIdentifier = sprintf('oauth-client-%s', uniqid());
+
+        (new SpyOauthClient())
+            ->setIdentifier($clientIdentifier)
+            ->setName('client name')
+            ->setRedirectUri('https://client.example.com/callback')
+            ->setSecret($secret)
+            ->setIsConfidential($isConfidential)
+            ->save();
+
+        return $clientIdentifier;
     }
 
     protected function getOauthFacade(?OauthConfig $oauthConfigMock = null): AbstractFacade

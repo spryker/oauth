@@ -87,6 +87,16 @@ class OauthFacade extends AbstractFacade implements OauthFacadeInterface
      * {@inheritDoc}
      *
      * @api
+     */
+    public function updateClient(OauthClientTransfer $oauthClientTransfer): ?OauthClientTransfer
+    {
+        return $this->getFactory()->createOauthClientWriter()->update($oauthClientTransfer);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @api
      *
      * @param \Generated\Shared\Transfer\OauthClientTransfer $oauthClientTransfer
      *

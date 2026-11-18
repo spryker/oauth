@@ -50,4 +50,20 @@ class OauthClientWriter implements OauthClientWriterInterface
 
         return $oauthClientTransfer;
     }
+
+    public function update(OauthClientTransfer $oauthClientTransfer): ?OauthClientTransfer
+    {
+        $oauthClientTransfer->requireIdentifier()->requireName();
+
+        $existingOauthClient = $this->oauthClientReader->findClientByIdentifier(
+            (new OauthClientTransfer())->setIdentifier($oauthClientTransfer->getIdentifier()),
+        );
+        if ($existingOauthClient === null) {
+            return null;
+        }
+
+        $oauthClientTransfer->setIdOauthClient($existingOauthClient->getIdOauthClientOrFail());
+
+        return $this->oauthEntityManager->updateClient($oauthClientTransfer);
+    }
 }
